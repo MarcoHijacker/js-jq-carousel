@@ -41,3 +41,7 @@ function prevPicture() {
     puntoGuida.prev().addClass('active');
   }
 }
+
+function dotPicture() {
+  var
+}
