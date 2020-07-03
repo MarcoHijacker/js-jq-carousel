@@ -3,7 +3,16 @@
 $(document).ready(function () {
 $('.next').click(nextPicture);
 $('.prev').click(prevPicture);
-
+// Consento scorrimento foto con left (37) e right (39) in tastiera
+  $(document).keydown(function () {
+    var key;
+    key = event.which;
+    if (key == 39) {
+      nextPicture();
+    } else if (key == 37) {
+      prevPicture();
+    }
+  });
 });
 
 // Definizione funzioni
@@ -31,7 +40,7 @@ function prevPicture() {
   imgAttiva.removeClass('active');
   puntoGuida.removeClass('active');
 
-  if(imgAttiva.hasClass('first')) {
+  if(imgAttiva.hasClass('first')) { // Stessa cosa di sopra, ma qui faccio il 'giro' se arrivo alla prima img
     imgAttiva = $('.slider-wrapper .images .last');
     puntoGuida = $('.slider-wrapper .nav .last');
     imgAttiva.addClass('active');
